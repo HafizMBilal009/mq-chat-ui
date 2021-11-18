@@ -104,14 +104,14 @@ html {
 
 /* Messages */
 .all-messages {
-  /* overflow-y: auto; */
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 .message {
-  /* display: flex; */
-  margin-inline: 0.5rem;
-  margin-block: 1rem;
+  margin: 0.5rem 1rem;
+}
+.message-info {
+  display: inline-block;
 }
 .message-sender {
   font-size: 0.65rem;

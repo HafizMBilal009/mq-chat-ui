@@ -12,7 +12,7 @@ const Message = ({ index, message, sender, time }) => {
         <div className='message-sender'>
           {sender === localStorage.getItem('sender') ? '' : sender}
         </div>
-        <span className='message-text'>{message}</span>
+        <div className='message-text'>{message}</div>
         <div className='message-time'>{time}</div>
       </div>
     </div>
