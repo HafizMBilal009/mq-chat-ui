@@ -1,7 +1,6 @@
 import React from 'react';
 import InputForm from './InputForm';
 import Messages from './Messages';
-
 const Home = ({ setIsLoggedIn }) => {
   const onLogout = () => {
     localStorage.removeItem('sender');

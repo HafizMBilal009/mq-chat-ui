@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 const Login = ({ setIsLoggedIn }) => {
   const [sender, setSender] = useState('');
   const onLogin = () => {
-    localStorage.setItem('sender', sender);
-    setIsLoggedIn(true);
+    if (sender) {
+      localStorage.setItem('sender', sender);
+      setIsLoggedIn(true);
+    } else {
+      alert('Please enter your name!');
+    }
   };
   return (
     <div className='login-form'>

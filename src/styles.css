@@ -3,7 +3,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: 'Source Code Pro', monospace;
+  font-family: helvetica;
 }
 .login-container {
   display: grid;
@@ -60,12 +60,13 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: tan;
+  background-color: #000;
   position: fixed;
   top: 0;
   width: 100%;
   height: 3rem;
   color: #fff;
+  z-index: 10;
 }
 .header p {
   margin-left: 1rem;
@@ -84,6 +85,7 @@ html {
   bottom: 0;
   display: flex;
   width: 100vw;
+  z-index: 10;
 }
 .message-input-container input {
   height: 2rem;
@@ -103,31 +105,107 @@ html {
 }
 
 /* Messages */
-.all-messages {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
 }
+
+.messages {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
 .message {
-  margin: 0.5rem 1rem;
-}
-.message-info {
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: inline-block;
 }
-.message-sender {
-  font-size: 0.65rem;
-  color: #000;
+
+.yours {
+  align-items: flex-start;
 }
-.message-text {
-  background-color: #00acee;
-  padding: 0.35rem 1rem;
-  border-radius: 1rem;
+.alg-end {
+  flex-direction: row;
+  align-items: flex-end;
+}
+.yours .message {
+  margin-right: 25%;
+  background-color: #eee;
+  position: relative;
+}
+
+.yours .message.last:before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -7px;
+  height: 20px;
+  width: 20px;
+  background: #eee;
+  border-bottom-right-radius: 15px;
+}
+.yours .message.last:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10px;
+  width: 10px;
+  height: 20px;
+  background: white;
+  border-bottom-right-radius: 10px;
+}
+
+.mine {
+  align-items: flex-end;
+}
+
+.mine .message {
   color: white;
+  margin-left: 25%;
+  background: rgb(0, 120, 254);
+  position: relative;
 }
-.message-time {
-  font-size: 0.65rem;
-  text-align: end;
+
+.mine .message.last:before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+  background: rgb(0, 120, 254);
+  border-bottom-left-radius: 15px;
 }
-.my-messages {
-  justify-content: flex-end;
-  text-align: end;
+
+.mine .message.last:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+  background: white;
+  border-bottom-left-radius: 10px;
+}
+.sender {
+  margin-right: 1rem;
+}
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ccc;
+  font-style: italic;
 }

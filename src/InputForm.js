@@ -6,7 +6,7 @@ const InputForm = () => {
   const sendMessage = async () => {
     if (message) {
       await axios.request({
-        url: 'http://localhost:5000/message',
+        url: `${process.env.REACT_APP_API_URL}/message`,
         method: 'POST',
         data: { sender: localStorage.getItem('sender'), message },
         headers: {

@@ -1,20 +1,14 @@
 import React from 'react';
 
 const Message = ({ index, message, sender, time }) => {
+  const isMe = sender === localStorage.getItem('sender');
   return (
     <div
       key={index}
-      className={`message ${
-        sender === localStorage.getItem('sender') ? 'my-messages' : ''
-      }`}
+      className={`${isMe ? 'mine messages' : 'yours messages alg-end'}`}
     >
-      <div className='message-info'>
-        <div className='message-sender'>
-          {sender === localStorage.getItem('sender') ? '' : sender}
-        </div>
-        <div className='message-text'>{message}</div>
-        <div className='message-time'>{time}</div>
-      </div>
+      {!isMe && <div className='sender'>{sender?.split(' ')?.[0]}</div>}
+      <div className='message last'>{message}</div>
     </div>
   );
 };

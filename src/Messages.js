@@ -22,9 +22,9 @@ const Messages = () => {
     return () => socket.off('SEND_MESSAGE');
   }, [getMessage]);
 
-  return (
+  return messages?.length > 0 ? (
     <div>
-      <div id='all-messages' className='all-messages'>
+      <div id='all-messages' className='chat'>
         {messages?.map(({ sender, message, time }, index) => (
           <Message
             index={index}
@@ -35,6 +35,8 @@ const Messages = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <div className='not-found'>Start chatting with friends!</div>
   );
 };
 
